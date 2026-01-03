@@ -15,13 +15,13 @@ func main() {
 
 	// Middleware
 	r.Use(cors.Handler(cors.Options{
-		AllowedOrigins: []string{"http://localhost:3000"}, 
+		AllowedOrigins: []string{"http://localhost:3000","http://localhost:5173"}, 
 		AllowedMethods: []string{"GET","POST","PUT","DELETE"},
 	}))
 	
 	// Routes
 	r.Get("/api/drives", api.GetDrives)
-	r.Post("/api/drives", api.AddDrive)
+	//r.Post("/api/drives", api.AddDrive)
 
 	log.Println("ClusterNAS API running on :8080")
 	http.ListenAndServe(":8080", r)
